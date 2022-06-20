@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Snackbar } from '@material-ui/core';
 import Slide from '@material-ui/core/Slide';
@@ -6,11 +6,13 @@ import Slide from '@material-ui/core/Slide';
 export default function Snackbars(props) {
   const [openState, setOpenState] = React.useState(false);
 
-  const { open, vertical, horizontal, message, type, onClose } = props;
+  const {
+    open, vertical, horizontal, message, type, onClose,
+  } = props;
 
   function TransitionRight(props) {
     return <Slide {...props} direction="left" />;
-  };
+  }
 
   useEffect(() => {
     if (open && !openState) {
@@ -24,13 +26,13 @@ export default function Snackbars(props) {
   //       setOpenState(false);
   //       onClose();
   //     }, 2000);
-  //   } 
+  //   }
   // }, [openState]);
 
   const handleClose = () => {
     setOpenState(false);
     onClose();
-  }
+  };
 
   return (
     <Snackbar
@@ -43,7 +45,7 @@ export default function Snackbars(props) {
       key={vertical + horizontal}
       TransitionComponent={TransitionRight}
     />
-  )
+  );
 }
 
 Snackbars.prototype = {
@@ -53,10 +55,10 @@ Snackbars.prototype = {
   horizontal: PropTypes.oneOf(['left', 'center', 'right']),
   type: PropTypes.oneOf(['info', 'warning', 'error', 'success']),
   onClose: PropTypes.func,
-}
+};
 Snackbars.defaultProps = {
   vertical: 'top',
   horizontal: 'right',
   type: 'info',
   onClose: () => { },
-}
+};

@@ -25,8 +25,8 @@ function* init() {
     if (result.data?.userInfo?.language) {
       localStorage.setItem('language', result.data.userInfo.language);
     }
-    yield put(setInit(result.data?.initData));
-    yield put(setActiveUser(result.data?.userInfo));
+    // yield put(setInit(result.data?.initData));
+    // yield put(setActiveUser(result.data?.userInfo));
     yield put(setAppConfig('isLoading', false));
   } else {
     yield put(setAppConfig('isLoading', false));
